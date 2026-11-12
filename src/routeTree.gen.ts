@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BuscadosRouteImport } from './routes/buscados'
+import { Route as EnVivoRouteImport } from './routes/en-vivo'
+import { Route as ExpedientesRouteImport } from './routes/expedientes'
+import { Route as NoticiasRouteImport } from './routes/noticias'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BuscadosRoute = BuscadosRouteImport.update({
+  id: '/buscados',
+  path: '/buscados',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnVivoRoute = EnVivoRouteImport.update({
+  id: '/en-vivo',
+  path: '/en-vivo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExpedientesRoute = ExpedientesRouteImport.update({
+  id: '/expedientes',
+  path: '/expedientes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NoticiasRoute = NoticiasRouteImport.update({
+  id: '/noticias',
+  path: '/noticias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/buscados': typeof BuscadosRoute
+  '/en-vivo': typeof EnVivoRoute
+  '/expedientes': typeof ExpedientesRoute
+  '/noticias': typeof NoticiasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/buscados': typeof BuscadosRoute
+  '/en-vivo': typeof EnVivoRoute
+  '/expedientes': typeof ExpedientesRoute
+  '/noticias': typeof NoticiasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/buscados': typeof BuscadosRoute
+  '/en-vivo': typeof EnVivoRoute
+  '/expedientes': typeof ExpedientesRoute
+  '/noticias': typeof NoticiasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/buscados' | '/en-vivo' | '/expedientes' | '/noticias'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/buscados' | '/en-vivo' | '/expedientes' | '/noticias'
+  id: '__root__' | '/' | '/buscados' | '/en-vivo' | '/expedientes' | '/noticias'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BuscadosRoute: typeof BuscadosRoute
+  EnVivoRoute: typeof EnVivoRoute
+  ExpedientesRoute: typeof ExpedientesRoute
+  NoticiasRoute: typeof NoticiasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/buscados': {
+      id: '/buscados'
+      path: '/buscados'
+      fullPath: '/buscados'
+      preLoaderRoute: typeof BuscadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en-vivo': {
+      id: '/en-vivo'
+      path: '/en-vivo'
+      fullPath: '/en-vivo'
+      preLoaderRoute: typeof EnVivoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/expedientes': {
+      id: '/expedientes'
+      path: '/expedientes'
+      fullPath: '/expedientes'
+      preLoaderRoute: typeof ExpedientesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/noticias': {
+      id: '/noticias'
+      path: '/noticias'
+      fullPath: '/noticias'
+      preLoaderRoute: typeof NoticiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BuscadosRoute: BuscadosRoute,
+  EnVivoRoute: EnVivoRoute,
+  ExpedientesRoute: ExpedientesRoute,
+  NoticiasRoute: NoticiasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
