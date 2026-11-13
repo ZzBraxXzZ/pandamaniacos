@@ -42,8 +42,8 @@ function Index() {
     const t = setInterval(() => setH((i) => (i + 1) % featured.length), 7000);
     return () => clearInterval(t);
   }, [featured.length]);
-  const item = featured[h];
-  const s = suspects[w];
+  const item = featured[h] ?? news[0]!;
+  const s = suspects[w] ?? suspects[0]!;
   const step = (d: number) => setW((i) => (i + d + suspects.length) % suspects.length);
 
   return (

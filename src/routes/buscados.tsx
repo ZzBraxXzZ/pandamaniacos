@@ -7,7 +7,7 @@ import { StatusStamp, SuspectDetail } from "@/components/pn/wanted";
 type Search = { id?: string | undefined };
 
 export const Route = createFileRoute("/buscados")({
-  validateSearch: (s: Record<string, unknown>): Search => ({ id: typeof s.id === "string" ? s.id : undefined }),
+  validateSearch: (s: Record<string, unknown>): Search => ({ id: typeof s["id"] === "string" ? s["id"] : undefined }),
   head: () => ({
     meta: [
       { title: "Los Más Buscados — PANDAMONIUM NEWS" },

@@ -8,7 +8,7 @@ import { PaperDialog } from "@/components/pn/paper-dialog";
 type Search = { id?: string | undefined };
 
 export const Route = createFileRoute("/noticias")({
-  validateSearch: (s: Record<string, unknown>): Search => ({ id: typeof s.id === "string" ? s.id : undefined }),
+  validateSearch: (s: Record<string, unknown>): Search => ({ id: typeof s["id"] === "string" ? s["id"] : undefined }),
   head: () => ({
     meta: [
       { title: "Noticias del Caos — PANDAMONIUM NEWS" },
