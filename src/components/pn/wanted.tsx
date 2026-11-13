@@ -1,8 +1,8 @@
 import type { Suspect } from "@/data/pandamonium";
 
-export function StatusStamp({ status }: { status: Suspect["status"] }) {
+export function StatusStamp({ status, className = "text-xl" }: { status: Suspect["status"]; className?: string }) {
   const tone = status === "CAPTURADO" ? "text-background" : status === "REINCIDENTE" ? "text-secondary" : "text-primary";
-  return <span className={`stamp text-xl ${tone}`}>{status}</span>;
+  return <span className={`stamp ${className} ${tone}`}>{status}</span>;
 }
 
 export function DangerMeter({ level }: { level: number }) {

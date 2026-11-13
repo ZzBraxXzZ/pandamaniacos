@@ -10,13 +10,13 @@ const CARDS = [
 
 export function QuickLinks() {
   return (
-    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-4">
       {CARDS.map(({ to, title, icon: Icon }) => (
-        <Link key={to} to={to} className="paper lift group flex items-center gap-4 rounded-xl border-4 border-ink/30 p-4 shadow-poster sm:p-5">
-          <span className="grid h-14 w-14 shrink-0 place-items-center rounded-lg border-4 border-ink bg-primary text-primary-foreground transition group-hover:rotate-6 sm:h-16 sm:w-16">
-            <Icon className="h-8 w-8" />
+        <Link key={to} to={to} className="paper lift group flex min-w-0 flex-col items-center gap-2 rounded-xl border-4 border-ink/30 p-3 text-center shadow-poster sm:flex-row sm:gap-4 sm:p-5 sm:text-left">
+          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg border-4 border-ink bg-primary text-primary-foreground transition group-hover:rotate-6 sm:h-16 sm:w-16">
+            <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
           </span>
-          <span className="font-display text-2xl leading-none text-ink sm:text-3xl">{title}</span>
+          <span className="min-w-0 break-words font-display text-xl leading-[1.05] text-ink sm:text-3xl sm:leading-none">{title}</span>
         </Link>
       ))}
     </div>

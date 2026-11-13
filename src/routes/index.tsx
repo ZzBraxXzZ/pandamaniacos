@@ -48,21 +48,21 @@ function Index() {
 
   return (
     <div className="space-y-8">
-      <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.6fr_1fr]">
         {/* Última hora */}
-        <section className="poster-frame relative overflow-hidden bg-background-deep shadow-poster">
-          <div key={item.id} className="fade-in grid min-h-[420px] md:grid-cols-[1fr_1.1fr]">
-            <div className="relative z-10 flex flex-col justify-center gap-4 p-6 sm:p-8">
+        <section className="poster-frame relative min-w-0 overflow-hidden bg-background-deep shadow-poster">
+          <div key={item.id} className="fade-in grid grid-cols-1 md:min-h-[420px] md:grid-cols-[1fr_1.1fr]">
+            <div className="relative z-10 order-2 flex flex-col justify-center gap-3 p-5 pb-12 sm:gap-4 sm:p-8 md:order-none">
               <span className="w-fit -skew-x-12 bg-primary px-4 py-1 font-display text-2xl tracking-wider text-primary-foreground shadow-poster">
                 ÚLTIMA HORA //
               </span>
-              <h1 className="-rotate-2 text-5xl leading-[0.95] text-foreground text-outline sm:text-6xl">{item.title}</h1>
+              <h1 className="-rotate-2 text-4xl leading-[0.95] min-[400px]:text-5xl sm:text-6xl md:text-5xl lg:text-6xl text-foreground text-outline">{item.title}</h1>
               <p className="max-w-sm text-foreground/90">{item.summary}</p>
               <Link to="/noticias" search={{ id: item.id }} className="btn-poster w-fit">
                 Ver Noticia <Play className="h-4 w-4 fill-current" />
               </Link>
             </div>
-            <img src={item.image} alt="" width={1280} height={832} className="h-64 w-full object-cover md:h-full" />
+            <img src={item.image} alt="" width={1280} height={832} className="order-1 aspect-[16/10] w-full object-cover md:order-none md:aspect-auto md:h-full" />
           </div>
           <div className="absolute bottom-4 left-0 right-0 z-20 md:left-8 md:right-auto">
             <Dots count={featured.length} active={h} onPick={setH} />
@@ -70,28 +70,28 @@ function Index() {
         </section>
 
         {/* Más buscados */}
-        <section className="poster-frame flex flex-col gap-4 bg-background-deep p-5 shadow-poster">
+        <section className="poster-frame flex min-w-0 flex-col gap-4 bg-background-deep p-3 shadow-poster sm:p-5">
           <div className="paper mx-auto flex items-center gap-3 rounded border-4 border-double border-primary px-4 py-2 text-center">
             <Star className="h-5 w-5 fill-primary text-primary" />
-            <h2 className="text-2xl leading-none text-primary sm:text-3xl">Los más buscados de Navidad</h2>
+            <h2 className="text-xl leading-none text-primary sm:text-3xl">Los más buscados de Navidad</h2>
             <Star className="h-5 w-5 fill-primary text-primary" />
           </div>
           <div className="relative flex items-center gap-2">
-            <button aria-label="Anterior" onClick={() => step(-1)} className="paper z-10 rounded-full p-1.5 text-primary shadow-poster transition hover:scale-110">
+            <button aria-label="Anterior" onClick={() => step(-1)} className="paper z-10 shrink-0 rounded-full p-1 text-primary sm:p-1.5 shadow-poster transition hover:scale-110">
               <ChevronLeft />
             </button>
-            <div key={s.id} className="paper fade-in flex flex-1 gap-4 rounded p-4 shadow-poster">
-              <img src={s.image} alt={s.alias} className="aspect-[4/5] w-28 shrink-0 rounded border-4 border-ink/70 object-cover sm:w-36" />
-              <div className="flex flex-col gap-2 text-sm">
-                <h3 className="text-3xl leading-none text-ink">{s.alias}</h3>
+            <div key={s.id} className="paper fade-in flex min-w-0 flex-1 gap-3 rounded p-3 sm:gap-4 sm:p-4 shadow-poster">
+              <img src={s.image} alt={s.alias} className="aspect-[4/5] w-24 shrink-0 rounded min-[400px]:w-28 border-4 border-ink/70 object-cover sm:w-36" />
+              <div className="flex min-w-0 flex-col gap-2 text-sm">
+                <h3 className="text-2xl sm:text-3xl leading-none text-ink">{s.alias}</h3>
                 <p><b>Delito:</b> {s.crimes[0]}.</p>
-                <p className="flex items-center gap-2"><b>Estado:</b> <StatusStamp status={s.status} /></p>
-                <Link to="/buscados" search={{ id: s.id }} className="btn-poster mt-auto w-fit text-base">
+                <p className="flex flex-wrap items-center gap-x-2 gap-y-1"><b>Estado:</b> <StatusStamp status={s.status} className="text-base sm:text-xl" /></p>
+                <Link to="/buscados" search={{ id: s.id }} className="btn-poster mt-auto w-fit whitespace-nowrap px-3 text-sm sm:px-5 sm:text-base">
                   Ver Expediente <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
-            <button aria-label="Siguiente" onClick={() => step(1)} className="paper z-10 rounded-full p-1.5 text-primary shadow-poster transition hover:scale-110">
+            <button aria-label="Siguiente" onClick={() => step(1)} className="paper z-10 shrink-0 rounded-full p-1 text-primary sm:p-1.5 shadow-poster transition hover:scale-110">
               <ChevronRight />
             </button>
           </div>
