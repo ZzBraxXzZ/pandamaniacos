@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Use `LOGO_URL` from the central content module for all official logo references; keep the asset filename `pandamonium-logo.png` so the shared contain/filter treatment applies without changing editorial illustrations.

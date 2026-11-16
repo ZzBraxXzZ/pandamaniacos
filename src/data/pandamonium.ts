@@ -66,7 +66,7 @@ export const news: NewsItem[] = [
     body: "El objeto volador no identificado tocaba cornetas y dejaba un rastro de confeti. Fuentes cercanas lo describen como «adorable pero peligroso».",
     category: "Investigaciones",
     date: "2026-12-05",
-    image: logo.url,
+    image: LOGO_URL,
   },
   {
     id: "duenos-navidad",
@@ -75,7 +75,7 @@ export const news: NewsItem[] = [
     body: "En un comunicado escrito con crayón rojo, el equipo anunció que la Navidad de Pandatech queda oficialmente bajo su caótica administración.",
     category: "Noticias de Pandatech",
     date: "2026-12-06",
-    image: logo.url,
+    image: LOGO_URL,
   },
   {
     id: "ladron-galletas",
@@ -116,7 +116,7 @@ export const suspects: Suspect[] = [
   {
     id: "panda-trineo",
     alias: "El Piloto del Caos",
-    image: logo.url,
+    image: LOGO_URL,
     description: "Conduce un trineo con cohetes y cornetas. Le acompañan dos pandas bebé.",
     crimes: ["Exceso de velocidad aérea", "Contaminación sonora navideña"],
     danger: 5,
@@ -175,7 +175,7 @@ export const secretFiles: SecretFile[] = [
     code: "EXP-004",
     title: "El origen del caos",
     level: "ULTRASECRETO",
-    image: logo.url,
+    image: LOGO_URL,
     summary: "Todo comenzó cuando un panda encontró un trineo y un par de cohetes.",
     clues: ["Fotografía borrosa de un trineo", "Manual de cohetes con huellas de bambú"],
   },

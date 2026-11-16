@@ -29,9 +29,9 @@ export function SiteHeader() {
           <img
             src={LOGO_URL}
             alt="Logo oficial de PANDAMONIUM"
-            width={547}
-            height={324}
-            className="h-14 w-auto shrink-0 drop-shadow-lg transition-transform group-hover:-rotate-3 sm:h-24 md:h-28"
+            width={1920}
+            height={1065}
+            className="h-14 w-auto shrink-0 object-contain drop-shadow-lg transition-transform group-hover:-rotate-3 sm:h-24 md:h-28"
           />
           <div className="text-center leading-none">
             <span className="block font-western text-[1.35rem] text-foreground text-outline min-[400px]:text-2xl sm:text-4xl md:text-5xl">
@@ -57,7 +57,7 @@ export function SiteHeader() {
         <SheetContent side="left" className="paper w-[78%] max-w-xs border-r-4 border-ink/40 bg-card p-0 text-card-foreground">
           <SheetTitle className="sr-only">Menú</SheetTitle>
           <div className="flex flex-col items-center gap-1 border-b-4 border-double border-ink/30 p-5">
-            <img src={LOGO_URL} alt="Logo oficial de PANDAMONIUM" width={547} height={324} className="h-16 w-auto" />
+            <img src={LOGO_URL} alt="Logo oficial de PANDAMONIUM" width={1920} height={1065} className="h-16 w-auto object-contain" />
             <span className="font-western text-xl text-primary">PANDAMONIUM NEWS</span>
           </div>
           <ul className="flex flex-col p-2">

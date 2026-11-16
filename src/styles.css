@@ -180,4 +180,5 @@
 @utility live-dot { animation: livePulse 1.2s ease-in-out infinite; }
 
 /* Keep the official logo's full proportions wherever it appears as an image. */
-main img[src$="pandamonium-logo.png"] { object-fit: contain; padding: 0.75rem; }
+img[src$="pandamonium-logo.png"] { object-fit: contain; filter: none; }
+main img[src$="pandamonium-logo.png"] { padding: 0.75rem; }
